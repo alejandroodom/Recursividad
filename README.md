@@ -114,6 +114,35 @@ b) static double bisect_iter (double min, double max) {
       return true;
   }
   La función esPalindromoIterativo toma una cadena s y devuelve true si es un palíndromo, y false en caso contrario. La función utiliza dos índices, i y j, que apuntan   al primer y al último carácter de la cadena, respectivamente. En cada iteración del bucle, se comparan los caracteres apuntados por i y j, y si no son iguales, la     función devuelve false. Si son iguales, se actualizan los índices para apuntar al siguiente par de caracteres, hasta que i sea mayor o igual que j, en cuyo caso la     función devuelve true.
+  
+  
+  5.
+  
+  Recursivo:
+  public static int mcdRecursivo(int m, int n) {
+    if (n == 0) {
+        return m;
+    } else {
+        return mcdRecursivo(n, m % n);
+    }
+  }
+  
+  Iterativo:
+  public static int mcdIterativo(int m, int n) {
+    while (n != 0) {
+        int r = m % n;
+        m = n;
+        n = r;
+    }
+    return m;
+  }
+  
+  Expresiones lambda:
+  BiFunction<Integer, Integer, Integer> mcdLambda = (m, n) ->
+    (n == 0) ? m : mcdLambda.apply(n, m % n);
+
+
+
 
 
 
